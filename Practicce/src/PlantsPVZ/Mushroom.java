@@ -15,9 +15,7 @@ public abstract class Mushroom extends Plant{
     public void awaken(CoffeeBean coffeeBean) {
         // TODO implementation
         state = true;
-        if(isAwake()){
-            System.out.println(coffeeBean.die());
-        }
+        System.out.println(coffeeBean.die());
     }
 
     // an example given for free
@@ -45,31 +43,50 @@ public abstract class Mushroom extends Plant{
         }
 
         public int attack(){
-            return 1;
+            if(isAwake()){
+                System.out.println(name + " attacks");
+                return 1;
+            }
+            System.out.println(name + " is asleep and cannot attack");
+            return 0;
         }
 
         @Override
-        public int rangeType() {
-            return -1; //single line
+        public RangeType rangeType() {
+            return RangeType.LIMITED; //single line
         }
     }
 
     public static class DoomShroom extends Mushroom implements InstantKiller, Attacker{
         public DoomShroom(boolean state){
             super("Doom-shroom", 125, state);
-        }
-
-        public int attack(){
-            return 10;
-        }
-
-        public int rangeType(){
-            return 1; //aoe
+            if(isAwake()){
+                hp = INFINITE;
+            }
         }
 
         @Override
-        public int killType() {
-            return 1;
+        public String die() {
+            return super.die() + " while exploding and leaves a crater";
+        }
+
+        public int attack(){
+            if(isAwake()){
+                System.out.println(name + " attacks");
+                System.out.println(die());
+                return 10;
+            }
+            System.out.println(name + " is asleep and cannot attack");
+            return 0;
+        }
+
+        public RangeType rangeType(){
+            return RangeType.AOE; //aoe
+        }
+
+        @Override
+        public KillType killType() {
+            return KillType.INSTANT;
         }
     }
 }
