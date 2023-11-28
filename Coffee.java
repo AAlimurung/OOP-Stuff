@@ -3,7 +3,7 @@ package kopibiiin;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Coffee implements CaffeineContent {
+public class Coffee implements ServingSize {
     private int size;
     private String name;
     List<Coffee> kopi = new ArrayList<>();
@@ -34,10 +34,10 @@ public class Coffee implements CaffeineContent {
     }
 
     @Override
-    public void cafcont() {
-        System.out.println(getName());
+    public void serves() {
+        System.out.println(getName() + ": " + getSize() + " oz.");
         for(Coffee c : kopi){
-            c.cafcont();
+            c.serves();
         }
     }
 }

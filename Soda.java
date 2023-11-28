@@ -1,9 +1,14 @@
 package kopibiiin;
 
-public class RootBeer implements CaffeineContent{
+import java.util.ArrayList;
+import java.util.List;
+
+public class Soda implements CaffeineContent, ServingSize{
     private int size;
     private int caflvl;
     private String name;
+
+    List<Soda> sodas = new ArrayList<>();
 
     public int getSize() {
         return size;
@@ -29,7 +34,7 @@ public class RootBeer implements CaffeineContent{
         this.name = name;
     }
 
-    public RootBeer(int size, int caflvl, String name) {
+    public Soda(int size, int caflvl, String name) {
         this.size = size;
         this.caflvl = caflvl;
         this.name = name;
@@ -37,6 +42,17 @@ public class RootBeer implements CaffeineContent{
 
     @Override
     public void cafcont() {
-        System.out.println(getName() + ": " + getCaflvl());
+        System.out.println(getName() + ": " + getCaflvl() + " (mg)");
+        for(Soda s : sodas){
+            s.cafcont();
+        }
+    }
+
+    @Override
+    public void serves() {
+        System.out.println(getName() + ": " + getSize() + " oz.");
+        for(Soda s : sodas){
+            s.serves();
+        }
     }
 }
