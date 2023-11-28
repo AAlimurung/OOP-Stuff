@@ -3,6 +3,7 @@ package kopibiiin;
 import java.util.ArrayList;
 import java.util.List;
 
+//composite class 1
 public class Coffee implements ServingSize {
     private int size;
     private String name;

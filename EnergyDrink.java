@@ -1,12 +1,12 @@
 package kopibiiin;
 
-//leaf class no. 1
-public class Tea implements ServingSize{
+//leaf class no. 2
+public class EnergyDrink implements CaffeineContent, ServingSize{
     private int size;
     private int caflvl;
     private String name;
 
-    public Tea(int size, int caflvl, String name) {
+    public EnergyDrink(int size, int caflvl, String name) {
         this.size = size;
         this.caflvl = caflvl;
         this.name = name;
@@ -22,6 +22,12 @@ public class Tea implements ServingSize{
 
     public String getName() {
         return name;
+    }
+
+
+    @Override
+    public void cafcont() {
+        System.out.println(getName() + ": " + getCaflvl() + " oz.");
     }
 
     @Override

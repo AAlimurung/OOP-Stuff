@@ -3,6 +3,7 @@ package kopibiiin;
 import java.util.ArrayList;
 import java.util.List;
 
+//composite class 2
 public class Soda implements CaffeineContent, ServingSize{
     private int size;
     private int caflvl;

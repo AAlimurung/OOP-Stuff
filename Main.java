@@ -8,6 +8,7 @@ public class Main {
         Tea tea = new Tea(8, 47, "Brewed black");
         Soda rb = new Soda(8, 0, "Root Beer");
         Soda c = new Soda(8, 22, "Cola");
+        EnergyDrink ed = new EnergyDrink(8, 86, "Energy Drink");
 
         //call to print the serving sizes
         //call to print the caffeine levels
